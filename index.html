@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ankit Maheshwari | Senior Android Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-color: #0f172a;
@@ -13,30 +15,52 @@
             --secondary-accent: #38bdf8;
             --card-bg: #1e293b;
             --border-color: #334155;
+            --timeline-color: #22d3ee;
         }
+
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; margin: 0; padding: 0; }
+        
         .container { max-width: 1000px; margin: auto; padding: 2rem; }
+
+        /* Header Styling */
         header { text-align: center; padding: 6rem 0 4rem; border-bottom: 1px solid var(--border-color); }
         h1 { font-size: 3.5rem; font-weight: 700; margin: 0; background: linear-gradient(to right, var(--accent-color), var(--secondary-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .subtitle { font-size: 1.4rem; font-weight: 400; margin-top: 0.5rem; opacity: 0.9; }
-        .contact-info { margin-top: 1.5rem; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-link { color: var(--accent-color); text-decoration: none; font-weight: 600; transition: opacity 0.2s; }
-        .contact-link:hover { opacity: 0.7; }
+        
+        .contact-info { margin-top: 2rem; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        .contact-link { color: var(--text-color); text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+        .contact-link:hover { color: var(--accent-color); }
+        .contact-link i { color: var(--accent-color); font-size: 1.2rem; }
+
+        /* Section Styling */
         .section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); }
-        h2 { font-size: 2rem; margin-bottom: 2rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); transition: transform 0.3s ease, border-color 0.3s ease; }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
-        .card h3 { margin-top: 0; color: var(--secondary-accent); }
-        .experience-item { margin-bottom: 3rem; position: relative; padding-left: 1.5rem; border-left: 2px solid var(--accent-color); }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
-        .exp-company { font-size: 1.5rem; font-weight: 700; margin: 0; }
-        .exp-date { font-weight: 600; color: var(--accent-color); }
-        .exp-bullets { padding-left: 1.2rem; margin-top: 1rem; }
-        .exp-bullets li { margin-bottom: 0.8rem; }
-        footer { text-align: center; padding: 4rem 0; opacity: 0.6; font-size: 0.9rem; }
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .subtitle { font-size: 1.1rem; } }
+        h2 { font-size: 1.8rem; margin-bottom: 2.5rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 15px; }
+        h2::after { content: ""; height: 1px; background: var(--border-color); flex-grow: 1; }
+
+        /* Experience Timeline (Flat Structure) */
+        .experience-item { margin-bottom: 4rem; position: relative; padding-left: 2rem; border-left: 2px solid var(--timeline-color); }
+        .experience-item::before { content: ""; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--timeline-color); box-shadow: 0 0 10px var(--accent-color); }
+        
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 1rem; }
+        .exp-company { font-size: 1.4rem; font-weight: 700; color: var(--text-color); margin: 0; }
+        .exp-date { font-weight: 600; color: var(--accent-color); font-size: 0.95rem; }
+        .exp-bullets { padding-left: 1.2rem; margin: 0; list-style-type: square; }
+        .exp-bullets li { margin-bottom: 0.8rem; opacity: 0.9; }
+
+        /* Skills Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--card-bg); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-color); box-shadow: 0 10px 30px -15px rgba(34, 211, 238, 0.2); }
+        .card i { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem; display: block; }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.2rem; color: var(--secondary-accent); }
+
+        footer { text-align: center; padding: 4rem 0; opacity: 0.7; font-size: 0.9rem; border-top: 1px solid var(--border-color); }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .exp-header { flex-direction: column; gap: 5px; }
+        }
     </style>
 </head>
 <body>
@@ -46,86 +70,123 @@
             <h1>Ankit Maheshwari</h1>
             <p class="subtitle">Senior Android Developer | 8+ Years Experience</p>
             <div class="contact-info">
-                <span>📍 Indore, MP</span>
-                <a href="mailto:ankytmaheshwari@gmail.com" class="contact-link">✉️ Email Me</a>
-                <a href="https://www.linkedin.com/in/ankytm" class="contact-link">🔗 LinkedIn</a>
-                <a href="https://github.com/ankytm" class="contact-link">💻 GitHub</a>
+                <span class="contact-link"><i class="fa-solid fa-location-dot"></i> Indore, MP</span>
+                <a href="mailto:ankytmaheshwari@gmail.com" class="contact-link"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                <a href="https://www.linkedin.com/in/ankytm" target="_blank" class="contact-link"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/ankytm" target="_blank" class="contact-link"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
         </header>
 
         <section id="about" class="section">
-            <h2>Professional Summary</h2>
-            <p style="font-size: 1.1rem; max-width: 850px;">
-                Innovative Senior Android Developer with over 8 years of experience building scalable, user-centric mobile applications. 
-                Specialized in <strong>Kotlin, Jetpack Compose, and Clean Architecture</strong>, with a proven track record of modernizing legacy modules to improve maintainability and performance. 
-                Expert in delivering seamless experiences for high-scale e-commerce, fintech, and food delivery platforms.
+            <h2><i class="fa-solid fa-user-tie"></i> Profile Summary</h2>
+            <p style="font-size: 1.1rem; max-width: 850px; opacity: 0.9;">
+                Innovative Senior Android Developer with over 8 years of experience building scalable, user-centric mobile applications[cite: 96]. 
+                Specialized in <strong>Kotlin, Jetpack Compose, and Clean Architecture</strong>, with a proven track record of modernizing legacy modules to improve maintainability and performance[cite: 97]. 
+                Expert in delivering seamless experiences for high-scale e-commerce, fintech, and food delivery platforms[cite: 98].
             </p>
         </section>
 
         <section id="skills" class="section">
-            <h2>Technical Arsenal</h2>
+            <h2><i class="fa-solid fa-code"></i> Technical Arsenal</h2>
             <div class="grid">
                 <div class="card">
+                    <i class="fa-solid fa-laptop-code"></i>
                     <h3>Languages & Core</h3>
-                    <p>Kotlin (Expert), Java, Jetpack Compose, Coroutines, Flow, RxJava.</p>
+                    <p>Kotlin (Expert), Java, Jetpack Compose, Coroutines, Flow, RxJava[cite: 100].</p>
                 </div>
                 <div class="card">
+                    <i class="fa-solid fa-sitemap"></i>
                     <h3>Architecture</h3>
-                    <p>Clean Architecture, MVVM, ViewModel, LiveData, Modularization, Dependency Injection (Hilt/Dagger).</p>
+                    <p>Clean Architecture, MVVM, ViewModel, LiveData, Modularization, Dependency Injection (Hilt/Dagger)[cite: 101].</p>
                 </div>
                 <div class="card">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
                     <h3>Integrations</h3>
-                    <p>Adobe Analytics, RudderStack SDK, Google Maps API, Juspay/Hyper SDK Payment Gateway, A/B Testing firebase config.</p>
+                    <p>Adobe Analytics, RudderStack SDK, Google Maps API, Juspay/Hyper SDK, Firebase A/B Testing[cite: 102].</p>
                 </div>
                 <div class="card">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
                     <h3>Specialized Tech</h3>
-                    <p>Media3 ExoPlayer, Room Database (Offline Support), Performance Optimization, CI/CD, Unit Testing (JUnit/MockK).</p>
+                    <p>Media3 ExoPlayer, Room Database, Performance Optimization, CI/CD, Unit Testing (JUnit/MockK)[cite: 104].</p>
                 </div>
             </div>
         </section>
 
         <section id="experience" class="section">
-            <h2>Professional Experience</h2>
+            <h2><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
 
-            <div class="experience-item">
-                <div class="exp-header">
-                    <p class="exp-company">Sr. Android Developer | Abylle Solutions Pvt. Ltd</p>
-                    <span class="exp-date">Oct 2022 – Present</span>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <p class="exp-company">Sr. Android Developer | Abylle Solutions Pvt. Ltd</p>
+                        <span class="exp-date">Oct 2022 – Present</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li><strong>Spearheaded</strong> the development of the <strong>Tata Cliq Luxury</strong> Android app using Jetpack Compose and Clean Architecture[cite: 107].</li>
+                        <li><strong>Orchestrated</strong> the modernization of legacy modules through modularization, reducing bug reports by 20%[cite: 108].</li>
+                        <li><strong>Optimized</strong> app performance via baseline profiles and network layer refactoring, achieving a 25% reduction in load times[cite: 109].</li>
+                        <li><strong>Collaborated</strong> across teams for complex features while owning the CI/CD pipeline for luxury brand deployments[cite: 110].</li>
+                    </ul>
                 </div>
-                <ul class="exp-bullets">
-                    <li><strong>Spearheaded</strong> the development of the <strong>Tata Cliq Luxury</strong> Android app using Jetpack Compose and Clean Architecture.</li>
-                    <li><strong>Orchestrated</strong> legacy module modernization through modularization, reducing bug reports by 20% and improving codebase maintainability.</li>
-                    <li><strong>Optimized</strong> app performance via baseline profiles and network layer refactoring, achieving a 25% reduction in load times.</li>
-                    <li><strong>Collaborated</strong> across teams for complex features while owning the CI/CD pipeline for luxury brand deployments.</li>
-                </ul>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <p class="exp-company">Android Developer | Webvillee Technology Pvt. Ltd</p>
+                        <span class="exp-date">Nov 2020 – Aug 2022</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li><strong>Architected</strong> and implemented core features across multiple applications for robust lifecycle management and scalability[cite: 112].</li>
+                        <li><strong>Enhanced app performance</strong> by optimizing API structures and implementing efficient caching strategies[cite: 113].</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <p class="exp-company">Android Developer | SS Apps and Webs Technologies</p>
+                        <span class="exp-date">Mar 2019 – Jun 2020</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Integrated Material Design and In-App Purchases (IAP) to drive user engagement and monetization[cite: 114, 115].</li>
+                        <li>Deployed secure payment gateway integrations, increasing transaction success rates by 15% via rigorous error handling[cite: 115].</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <p class="exp-company">Android Developer | Makerites InfoTech Pvt. Ltd.</p>
+                        <span class="exp-date">Aug 2018 – Feb 2019</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Developed and maintained independent Android projects from conception to deployment with full backend team support[cite: 116, 117].</li>
+                        <li>Gained hands-on expertise in coordinating with cross-functional teams to deliver timely client projects[cite: 117].</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <p class="exp-company">Android Developer | Techrefic Technologies Pvt. Ltd.</p>
+                        <span class="exp-date">Apr 2017 – Jul 2018</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Owned the end-to-end debugging and Play Store deployment processes for diverse client products[cite: 116, 118].</li>
+                        <li>Built and maintained Android apps for both internal company products and client-facing projects[cite: 118].</li>
+                    </ul>
+                </div>
             </div>
+        </section>
 
+        <section id="education" class="section" style="border-bottom: none;">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
             <div class="experience-item">
-                <div class="exp-header">
-                    <p class="exp-company">Android Developer | Webvillee Technology Pvt. Ltd</p>
-                    <span class="exp-date">Nov 2020 – Aug 2022</span>
-                </div>
-                <ul class="exp-bullets">
-                    <li><strong>Architected</strong> and implemented core features across multiple client applications for robust lifecycle management and scalability.</li>
-                    <li><strong>Enhanced performance</strong> by optimizing API structures and caching strategies for a 25% data load improvement.</li>
-                </ul>
+                <p class="exp-company">Bachelor of Engineering (Electronics & Communication)</p>
+                <p>Malwa Institute of Technology, Indore (RGPV) | 2015 [cite: 126, 127]</p>
             </div>
+        </section>
 
-            <div class="experience-item">
-                <div class="exp-header">
-                    <p class="exp-company">Android Developer | SS Apps and Webs Technologies</p>
-                    <span class="exp-date">Mar 2019 – Jun 2020</span>
-                </div>
+        <footer>
+            <p>© 2026 Ankit Maheshwari | <i class="fa-solid fa-code"></i> Dedicated to clean, maintainable, and testable code [cite: 130]</p>
+        </footer>
+    </div>
 
-                            <div class="experience-item">
-                <div class="exp-header">
-                    <p class="exp-company">Android Developer | Makerites InfoTech Pvt. Ltd.</p>
-                    <span class="exp-date">Aug 2018 – Feb-2019</span>
-                </div>
-
-                                
-                            <div class="experience-item">
-                <div class="exp-header">
-                    <p class="exp-company">Android Developer | Techrefic Technologies Pvt. Ltd.</p>
-                    <span class="exp-date">Apr 2017 – Jul-2018</span>
-                </div>
+</body>
+</html>
