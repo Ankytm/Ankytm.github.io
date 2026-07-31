@@ -1,5 +1,5 @@
 # Comprehensive Android and Kotlin Interview Guide
-This comprehensive list by Ashfaque Khokhar covers fundamental to expert-level topics across modern Android, Kotlin, and Jetpack Compose.
+This comprehensive list covers fundamental to expert-level topics across modern Android, Kotlin, and Jetpack Compose.
 
 ---
 
