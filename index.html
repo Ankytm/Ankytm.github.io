@@ -4,675 +4,383 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankit Maheshwari | Senior Android Engineer</title>
-<meta name="description" content="Senior Android Engineer with 8+ years experience in Kotlin, Jetpack Compose, Android SDK, Architecture, SDK Integrations and scalable mobile apps.">
-
+<meta name="description" content="Senior Android Engineer with 8+ years experience in Kotlin, Jetpack Compose, Android SDK, Architecture, and SDK Integrations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
---bg:#05070b;
---surface:#0d1117;
---surface2:#11161d;
---line:rgba(255,255,255,.08);
---text:#ffffff;
---muted:#8b95a7;
---accent:#3ddc84;
---shadow:0 10px 40px rgba(0,0,0,.35);
-}
+  :root {
+    --bg: #0D1321;
+    --surface: #141B2E;
+    --surface-2: #1B2438;
+    --border: #262F47;
+    --text: #ECEFF6;
+    --text-muted: #8892A8;
+    --accent: #3DDC84;
+    --accent-dim: #2A9D63;
+    --accent-warm: #FF8A65;
+    --mono: 'JetBrains Mono', monospace;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  ::selection { background: var(--accent); color: #05130B; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+  /* NAV */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(13,19,33,0.85);
+    border-bottom: 1px solid var(--border);
+  }
+  nav.wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .logo { font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  .navlinks { display: flex; gap: 32px; font-size: 14px; color: var(--text-muted); }
+  .navlinks a:hover { color: var(--text); }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    border: 1px solid var(--accent-dim); border-radius: 999px;
+    padding: 5px 12px; background: rgba(61,220,132,0.06);
+  }
+  .status-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  @media (max-width: 720px) { .navlinks { display: none; } }
 
-html{
-scroll-behavior:smooth;
-}
+  /* HERO */
+  .hero { padding: 96px 0 72px; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+  .eyebrow { font-family: var(--mono); font-size: 13px; color: var(--accent-warm); letter-spacing: 0.04em; margin-bottom: 18px; display: block; }
+  h1 {
+    font-family: var(--display); font-weight: 700; font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 20px;
+  }
+  h1 .accent { color: var(--accent); }
+  .hero-desc { color: var(--text-muted); font-size: 17px; max-width: 480px; margin-bottom: 32px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--body); font-weight: 600; font-size: 14px;
+    padding: 12px 22px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary { background: var(--accent); color: #05130B; }
+  .btn-primary:hover { transform: translateY(-1px); background: #4EE595; }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent-dim); background: var(--surface-2); }
 
-body{
-font-family:Inter,sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
--webkit-font-smoothing:antialiased;
-overflow-x:hidden;
-}
+  /* device mockup */
+  .device {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 22px;
+    padding: 18px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .device-bar { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--text-muted); padding: 0 4px 14px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+  .device-bar .dot-row span { display:inline-block; width:6px; height:6px; border-radius:50%; background: var(--accent); margin-right:4px; }
+  .logline { font-family: var(--mono); font-size: 12.5px; color: var(--text-muted); padding: 3px 0; white-space: pre; }
+  .logline b { color: var(--accent); font-weight: 500; }
+  .logline .warm { color: var(--accent-warm); }
+  .stat-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-top: 14px; }
+  .stat { background: var(--surface); padding: 14px 10px; text-align: center; }
+  .stat b { display: block; font-family: var(--display); font-size: 20px; color: var(--accent); }
+  .stat span { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
 
-/* Animated background glow */
-body::before,
-body::after{
-content:"";
-position:fixed;
-width:420px;
-height:420px;
-border-radius:50%;
-z-index:-1;
-filter:blur(40px);
-opacity:.18;
-animation:floatGlow 10s ease-in-out infinite;
-}
+  section { padding: 72px 0; border-top: 1px solid var(--border); }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; }
+  .section-num { font-family: var(--mono); color: var(--accent-warm); font-size: 13px; }
+  h2 { font-family: var(--display); font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
 
-body::before{
-top:-120px;
-left:-120px;
-background:var(--accent);
-}
+  /* about */
+  .about-text { color: var(--text-muted); font-size: 16px; max-width: 680px; }
+  .about-text p + p { margin-top: 14px; }
 
-body::after{
-bottom:-120px;
-right:-120px;
-background:#3a7bff;
-animation-delay:2s;
-}
+  /* experience */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+  .role { position: relative; padding-bottom: 32px; }
+  .role:last-child { padding-bottom: 0; }
+  .role::before { content: ''; position: absolute; left: -28px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent-dim); }
+  .role.current::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px rgba(61,220,132,0.15); }
+  .role-title { font-weight: 600; font-size: 16.5px; }
+  .role-meta { font-family: var(--mono); font-size: 12.5px; color: var(--text-muted); margin: 4px 0 8px; }
+  .role-desc { color: var(--text-muted); font-size: 14.5px; max-width: 620px; }
 
-@keyframes floatGlow{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(40px);}
-}
+  /* skills */
+  .skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  @media (max-width: 780px) { .skill-grid { grid-template-columns: repeat(2, 1fr); } }
+  .skill-cat h3 { font-family: var(--mono); font-size: 12px; color: var(--accent-warm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .skill-cat ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .skill-cat li { font-size: 14px; color: var(--text); }
 
-.container{
-width:92%;
-max-width:1180px;
-margin:auto;
-}
+  /* integrations */
+  .integration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 780px) { .integration-grid { grid-template-columns: 1fr 1fr; } }
+  .integration-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .integration-card h4 { font-size: 13px; color: var(--accent); margin-bottom: 8px; font-family: var(--mono); }
+  .integration-card p { font-size: 13.5px; color: var(--text-muted); }
 
-section{
-padding:95px 0;
-position:relative;
-}
+  /* projects */
+  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 780px) { .project-grid { grid-template-columns: 1fr; } }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; transition: border-color 0.15s; }
+  .project-card:hover { border-color: var(--accent-dim); }
+  .project-card h4 { font-family: var(--display); font-size: 16px; margin-bottom: 8px; }
+  .project-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 14px; }
+  .project-link { font-family: var(--mono); font-size: 12.5px; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
+  .project-link:hover { text-decoration: underline; }
 
-h1,h2,h3{
-font-family:Manrope,sans-serif;
-letter-spacing:-0.02em;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-header{
-position:fixed;
-top:0;
-left:0;
-right:0;
-z-index:99;
-background:rgba(5,7,11,.68);
-backdrop-filter:blur(14px);
-border-bottom:1px solid var(--line);
-}
-
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-}
-
-.logo{
-font-weight:800;
-font-size:20px;
-}
-
-.logo span{
-color:var(--accent);
-}
-
-.menu{
-display:flex;
-gap:26px;
-}
-
-.menu a{
-font-size:14px;
-color:#d6dbe5;
-transition:.25s;
-}
-
-.menu a:hover{
-color:#fff;
-}
-
-.hero{
-min-height:100vh;
-display:grid;
-grid-template-columns:1.15fr .85fr;
-gap:40px;
-align-items:center;
-}
-
-.tag{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 14px;
-border:1px solid var(--line);
-border-radius:999px;
-font-size:13px;
-color:#d7dde7;
-margin-bottom:22px;
-background:rgba(255,255,255,.02);
-}
-
-.dot{
-width:8px;
-height:8px;
-border-radius:50%;
-background:var(--accent);
-}
-
-.hero h1{
-font-size:64px;
-line-height:1.03;
-margin-bottom:18px;
-max-width:720px;
-}
-
-.hero h1 span{
-color:var(--accent);
-}
-
-.hero p{
-font-size:18px;
-color:var(--muted);
-max-width:620px;
-margin-bottom:30px;
-}
-
-.btns{
-display:flex;
-gap:14px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:14px 22px;
-border-radius:12px;
-font-weight:700;
-font-size:14px;
-transition:.25s;
-display:inline-flex;
-align-items:center;
-gap:8px;
-}
-
-.primary{
-background:var(--accent);
-color:#04110a;
-}
-
-.primary:hover{
-transform:translateY(-3px);
-}
-
-.ghost{
-border:1px solid var(--line);
-background:rgba(255,255,255,.02);
-}
-
-.ghost:hover{
-background:rgba(255,255,255,.04);
-transform:translateY(-3px);
-}
-
-.panel,
-.card{
-background:linear-gradient(180deg,var(--surface),var(--surface2));
-border:1px solid var(--line);
-border-radius:24px;
-padding:28px;
-box-shadow:var(--shadow);
-transition:.25s;
-}
-
-.card:hover,
-.panel:hover{
-transform:translateY(-6px);
-border-color:rgba(61,220,132,.35);
-}
-
-.stats{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-margin-top:16px;
-}
-
-.stat{
-padding:18px;
-border-radius:18px;
-background:rgba(255,255,255,.02);
-border:1px solid var(--line);
-}
-
-.stat h3{
-font-size:28px;
-margin-bottom:4px;
-}
-
-.stat p{
-font-size:13px;
-color:var(--muted);
-}
-
-.title{
-font-size:38px;
-margin-bottom:34px;
-}
-
-.sub{
-color:var(--muted);
-max-width:650px;
-margin-top:-12px;
-margin-bottom:28px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:18px;
-}
-
-.card h3{
-font-size:18px;
-margin-bottom:10px;
-}
-
-.card p{
-font-size:14px;
-color:var(--muted);
-}
-
-.timeline{
-display:grid;
-gap:18px;
-}
-
-.role{
-font-size:20px;
-margin-bottom:5px;
-}
-
-.meta{
-font-size:13px;
-color:var(--muted);
-margin-bottom:12px;
-}
-
-.chips{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
-
-.chips span{
-padding:10px 14px;
-border-radius:999px;
-font-size:13px;
-background:rgba(255,255,255,.03);
-border:1px solid var(--line);
-}
-
-.cta{
-text-align:center;
-padding:40px 22px;
-}
-
-footer{
-padding:28px 0;
-border-top:1px solid var(--line);
-text-align:center;
-color:var(--muted);
-font-size:14px;
-}
-
-.fade{
-opacity:0;
-transform:translateY(18px);
-transition:.7s ease;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* Parallax */
-.parallax{
-transition:transform .1s linear;
-will-change:transform;
-}
-
-@media(max-width:980px){
-.hero{
-grid-template-columns:1fr;
-padding-top:90px;
-}
-.hero h1{
-font-size:48px;
-}
-}
-
-@media(max-width:640px){
-.menu{
-display:none;
-}
-section{
-padding:72px 0;
-}
-.hero h1{
-font-size:34px;
-}
-.hero p{
-font-size:16px;
-}
-.title{
-font-size:30px;
-}
-.btn{
-width:100%;
-justify-content:center;
-}
-.stats{
-grid-template-columns:1fr;
-}
-.container{
-width:94%;
-}
-}
+  /* contact/footer */
+  footer { padding: 64px 0 40px; text-align: center; }
+  footer h2 { margin-bottom: 12px; }
+  footer p { color: var(--text-muted); max-width: 440px; margin: 0 auto 28px; }
+  .footer-links { display: flex; gap: 20px; justify-content: center; margin-top: 32px; font-size: 14px; color: var(--text-muted); flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--accent); }
+  .copyright { margin-top: 40px; font-size: 12.5px; color: #4C5670; font-family: var(--mono); }
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="container nav">
-<div class="logo">Ankit Maheshwari<span>.</span></div>
-
-<nav class="menu">
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#skills">Skills</a>
-<a href="#sdk">Integrations</a>
-<a href="#contact">Contact</a>
-</nav>
-</div>
+  <nav class="wrap">
+    <div class="logo">Ankit<span>.</span>M</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <span class="status-pill">Open to roles</span>
+  </nav>
 </header>
 
 <section class="hero">
-<div class="container hero">
-
-<div class="fade parallax" data-speed="0.18">
-<div class="tag">
-<div class="dot"></div>
-Available for Product Roles
-</div>
-
-<h1>
-Senior Android Engineer<br>
-<span>Minimal Code. Maximum Impact.</span>
-</h1>
-
-<p>
-8+ years of experience building scalable Android apps using Kotlin,
-Jetpack Compose, modern architecture, SDK integrations, and performance-first engineering.
-</p>
-
-<div class="btns">
-<a href="#experience" class="btn primary">View Experience</a>
-<a href="#contact" class="btn ghost">Contact Me</a>
-<a href="https://drive.google.com/drive/folders/1QABWomVNbweyRa2ZkLsp3GvQ1e0v9iIk?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn ghost">Download Resume</a>
-</div>
-</div>
-
-<div class="panel fade parallax" data-speed="0.08">
-<h3>Snapshot</h3>
-
-<div class="stats">
-<div class="stat">
-<h3>8+</h3>
-<p>Years Experience</p>
-</div>
-
-<div class="stat">
-<h3>25%</h3>
-<p>Load Time Improved</p>
-</div>
-
-<div class="stat">
-<h3>20%</h3>
-<p>Bug Reduction</p>
-</div>
-
-<div class="stat">
-<h3>10+</h3>
-<p>Apps Delivered</p>
-</div>
-</div>
-</div>
-
-</div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">// SENIOR ANDROID ENGINEER</span>
+      <h1>Minimal code.<br>Maximum <span class="accent">impact.</span></h1>
+      <p class="hero-desc">8+ years building scalable Android apps with Kotlin, Jetpack Compose, and modern architecture — shipping features that hold up in production, not just in demos.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Contact me</a>
+        <a class="btn btn-ghost" href="https://drive.google.com/drive/folders/1QABWomVNbweyRa2ZkLsp3GvQ1e0v9iIk?usp=sharing" target="_blank" rel="noopener">Download resume</a>
+        <a class="btn btn-ghost" href="https://github.com/ankytm" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="device">
+      <div class="device-bar">
+        <span>adb logcat --tag=career</span>
+        <span class="dot-row"><span></span><span></span><span></span></span>
+      </div>
+      <div class="logline"><b>I/Profile</b>: role=<span class="warm">Sr. Android Engineer</span></div>
+      <div class="logline"><b>I/Stack</b>: Kotlin, Compose, Clean Arch</div>
+      <div class="logline"><b>I/Current</b>: Tata Cliq Luxury @ Abylle</div>
+      <div class="logline"><b>I/Status</b>: <span class="warm">available_for_hire = true</span></div>
+      <div class="stat-strip">
+        <div class="stat"><b>8+</b><span>Years</span></div>
+        <div class="stat"><b>25%</b><span>Load Time ↓</span></div>
+        <div class="stat"><b>20%</b><span>Bugs ↓</span></div>
+        <div class="stat"><b>20+</b><span>Apps</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="about">
-<div class="container fade">
-<h2 class="title">About</h2>
-<p class="sub">
-Senior Android developer focused on building maintainable mobile products,
-clean architecture systems, robust SDK integrations, and elegant user experiences.
-</p>
-
-<div class="card">
-<p>
-Experienced in e-commerce, fintech, food delivery, media streaming, and enterprise apps.
-Strong ownership mindset with deep expertise in shipping stable Android applications at scale.
-</p>
-</div>
-</div>
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">01</span><h2>About</h2></div>
+    <div class="about-text">
+      <p>Senior Android developer focused on building maintainable mobile products, clean architecture systems, robust SDK integrations, and elegant user experiences.</p>
+      <p>Experienced across e-commerce, fintech, food delivery, media streaming, and enterprise apps — with a strong ownership mindset and deep expertise in shipping stable Android applications at scale.</p>
+    </div>
+  </div>
 </section>
 
 <section id="experience">
-<div class="container fade">
-<h2 class="title">Experience</h2>
-
-<div class="timeline">
-
-<div class="card">
-<div class="role">Sr. Android Developer</div>
-<div class="meta">Abylle Solutions Pvt. Ltd • Oct 2022 – Present</div>
-<p>
-Built Tata Cliq Luxury Android app using Jetpack Compose and modular clean architecture.
-Improved performance by 25% and reduced bugs by 20%.
-</p>
-</div>
-
-<div class="card">
-<div class="role">Android Developer</div>
-<div class="meta">Webvillee Technology Pvt. Ltd • Nov 2020 – Aug 2022</div>
-<p>
-Implemented core features across multiple products, optimized API layers,
-and improved loading performance by 25%.
-</p>
-</div>
-
-<div class="card">
-<div class="role">Android Developer</div>
-<div class="meta">SS Apps & Webs Technologies Pvt. Ltd • Mar 2019 – Jun 2020</div>
-<p>
-Integrated secure payments, in-app purchases, and modern UI systems.
-</p>
-</div>
-
-<div class="card">
-<div class="role">Android Developer</div>
-<div class="meta">Makerites Infotech Pvt. Ltd • Aug 2018 – Feb 2019</div>
-<p>
-Delivered end-to-end Android apps including deployment and maintenance.
-</p>
-</div>
-
-<div class="card">
-<div class="role">Associate Software Developer</div>
-<div class="meta">Techrific Technologies Pvt. Ltd • Apr 2017 – July 2018</div>
-<p>
-Delivered end-to-end Android apps including deployment and maintenance.
-</p>
-</div>
-
-</div>
-</div>
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="role current">
+        <div class="role-title">Sr. Android Developer</div>
+        <div class="role-meta">Abylle Solutions Pvt. Ltd · Oct 2022 – Present</div>
+        <div class="role-desc">Building the Tata Cliq Luxury Android app with Jetpack Compose and modular Clean Architecture. Improved performance by 25% and reduced bug reports by 20% through modularization. Integrated Adobe Analytics, RudderStack, Snowplow, and Juspay/Hyper SDK payments.</div>
+      </div>
+      <div class="role">
+        <div class="role-title">Android Developer</div>
+        <div class="role-meta">Webvillee Technology Pvt. Ltd · Nov 2020 – Aug 2022</div>
+        <div class="role-desc">Implemented core features across multiple client products, optimized API layers and caching, and improved loading performance across apps.</div>
+      </div>
+      <div class="role">
+        <div class="role-title">Android Developer</div>
+        <div class="role-meta">SS Apps & Webs Technologies Pvt. Ltd · Mar 2019 – Jun 2020</div>
+        <div class="role-desc">Integrated Material Design UI, Data Binding, and In-App Purchases across production apps in a fast-paced service environment.</div>
+      </div>
+      <div class="role">
+        <div class="role-title">Android Developer</div>
+        <div class="role-meta">Makerites InfoTech Pvt. Ltd · Aug 2018 – Feb 2019</div>
+        <div class="role-desc">Delivered Android apps as an individual contributor alongside the backend team across multiple client projects.</div>
+      </div>
+      <div class="role">
+        <div class="role-title">Android Developer</div>
+        <div class="role-meta">Techrific Technologies Pvt. Ltd · Apr 2017 – Jul 2018</div>
+        <div class="role-desc">Started as an Android developer trainee, progressing to live client projects and building foundational skills across the stack.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="skills">
-<div class="container fade">
-<h2 class="title">Core Skills</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Languages</h3>
-<div class="chips">
-<span>Kotlin</span>
-<span>Java</span>
-</div>
-</div>
-
-<div class="card">
-<h3>Android</h3>
-<div class="chips">
-<span>Jetpack Compose</span>
-<span>Android SDK</span>
-<span>XML</span>
-<span>Material UI</span>
-</div>
-</div>
-
-<div class="card">
-<h3>Architecture</h3>
-<div class="chips">
-<span>MVVM</span>
-<span>Clean Architecture</span>
-<span>Modularization</span>
-<span>ViewModel</span>
-</div>
-</div>
-
-<div class="card">
-<h3>Async / Data</h3>
-<div class="chips">
-<span>Coroutines</span>
-<span>Flow</span>
-<span>RxJava</span>
-<span>Room DB</span>
-</div>
-</div>
-
-</div>
-</div>
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2>Core Skills</h2></div>
+    <div class="skill-grid">
+      <div class="skill-cat">
+        <h3>Languages</h3>
+        <ul><li>Kotlin</li><li>Java</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h3>Android</h3>
+        <ul><li>Jetpack Compose</li><li>Android SDK</li><li>XML / Material UI</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h3>Architecture</h3>
+        <ul><li>MVVM</li><li>Clean Architecture</li><li>Modularization</li><li>ViewModel / LiveData</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h3>Async / Data</h3>
+        <ul><li>Coroutines</li><li>Flow</li><li>RxJava</li><li>Room DB</li></ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="sdk">
-<div class="container fade">
-<h2 class="title">SDK & Integrations</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Analytics</h3>
-<p>Adobe Analytics, Firebase Analytics, RudderStack</p>
-</div>
-
-<div class="card">
-<h3>Payments</h3>
-<p>Juspay / Hyper SDK, In-App Purchases, Secure Checkout</p>
-</div>
-
-<div class="card">
-<h3>Maps & Location</h3>
-<p>Google Maps API, Geo Features</p>
-</div>
-
-<div class="card">
-<h3>Media</h3>
-<p>Media3 ExoPlayer, Video Feed Systems</p>
-</div>
-
-<div class="card">
-<h3>Backend</h3>
-<p>REST APIs, JSON Parsing, Retrofit</p>
-</div>
-
-<div class="card">
-<h3>Quality</h3>
-<p>Firebase Crashlytics, CI/CD, JUnit, MockK</p>
-</div>
-
-</div>
-</div>
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">04</span><h2>SDK & Integrations</h2></div>
+    <div class="integration-grid">
+      <div class="integration-card"><h4>ANALYTICS</h4><p>Adobe Analytics, RudderStack, Snowplow, Firebase Analytics</p></div>
+      <div class="integration-card"><h4>PAYMENTS</h4><p>Juspay / Hyper SDK, In-App Purchases, Secure Checkout</p></div>
+      <div class="integration-card"><h4>MAPS & LOCATION</h4><p>Google Maps API, Geo Features</p></div>
+      <div class="integration-card"><h4>MEDIA</h4><p>Media3 ExoPlayer, Video Feed Systems</p></div>
+      <div class="integration-card"><h4>BACKEND</h4><p>REST APIs, JSON Parsing, Retrofit</p></div>
+      <div class="integration-card"><h4>QUALITY</h4><p>Firebase Crashlytics, CI/CD</p></div>
+    </div>
+  </div>
 </section>
 
-<section id="contact">
-<div class="container fade">
-<div class="panel cta">
-<h2 class="title" style="margin-bottom:10px;">Open to Senior Android Opportunities</h2>
-
-<p class="sub" style="margin:0 auto 22px auto;">
-Available for full-time product engineering roles with strong teams and meaningful products.
-</p>
-
-<div class="btns" style="justify-content:center;">
-<a href="https://www.linkedin.com/in/ankytmaheshwari/" target="_blank" rel="noopener noreferrer" class="btn ghost">
-<i class="fa-brands fa-linkedin-in"></i>
-LinkedIn
-</a>
-
-<a href="https://github.com/ankytm" target="_blank" rel="noopener noreferrer" class="btn ghost">
-<i class="fa-brands fa-github"></i>
-GitHub
-</a>
-
-<a href="mailto:ankytmaheshwari@gmail.com" class="btn primary">
-<i class="fa-solid fa-envelope"></i>
-Contact Me
-</a>
-</div>
-
-</div>
-</div>
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">05</span><h2>Projects</h2></div>
+    <div class="project-grid">
+      <div class="project-card">
+        <h4>Tata Cliq Luxury</h4>
+        <p>Flagship luxury e-commerce Android app built with Jetpack Compose and Clean Architecture. Current work at Abylle Solutions.</p>
+        <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tataunistore.luxury&hl=en_IN" target="_blank" rel="noopener">View on Play Store ↗</a>
+      </div>
+      <div class="project-card">
+        <h4>VideoFeed</h4>
+        <p>Android video feed app built with Media3 ExoPlayer and a custom controller synced to DefaultTimeBar.</p>
+        <a class="project-link" href="https://github.com/ankytm/VIdeoFeed" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h4>TMDB-App</h4>
+        <p>Movie discovery app in Kotlin using Retrofit and Room, built with offline support and search.</p>
+        <a class="project-link" href="https://github.com/ankytm/TMDB-App" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+      <div class="project-card">
+        <h4>Bounty Sports</h4>
+        <p>Daily fantasy sports app where users select teams, join contests, and win prizes.</p>
+      </div>
+      <div class="project-card">
+        <h4>Kumele</h4>
+        <p>Event management app where users create and join nearby events.</p>
+      </div>
+      <div class="project-card">
+        <h4>I-Cash</h4>
+        <p>Digital wallet app with store and customer roles; QR-code and mobile-number based peer payments.</p>
+      </div>
+      <div class="project-card">
+        <h4>Kerala Eats & Mr. Merchant</h4>
+        <p>Dual-role food delivery app for customers and merchants, with delivery handoff to the customer's address.</p>
+      </div>
+      <div class="project-card">
+        <h4>Woow Food App</h4>
+        <p>Food ordering and delivery app with dedicated customer and delivery-staff roles.</p>
+      </div>
+      <div class="project-card">
+        <h4>Service Fellow</h4>
+        <p>Service-providing app connecting customers with service providers.</p>
+      </div>
+      <div class="project-card">
+        <h4>Cordial Inc.</h4>
+        <p>App for drivers to transport vehicles from one place to another.</p>
+      </div>
+      <div class="project-card">
+        <h4>Wustomers</h4>
+        <p>Admin app that generates a mini website / e-commerce store, with customizable design and product management.</p>
+      </div>
+      <div class="project-card">
+        <h4>TAG Comics2</h4>
+        <p>Comic-reading app built around South African characters.</p>
+      </div>
+      <div class="project-card">
+        <h4>Lovethis.place</h4>
+        <p>Local marketing app — search a place, capture a photo, add doodles, and share it.</p>
+      </div>
+      <div class="project-card">
+        <h4>Dairy Farming App</h4>
+        <p>App covering the operational aspects of running a dairy farm.</p>
+      </div>
+      <div class="project-card">
+        <h4>Taxi Booking App</h4>
+        <p>Driver and customer apps supporting single and shared taxi bookings.</p>
+      </div>
+      <div class="project-card">
+        <h4>JSG Navkar App</h4>
+        <p>Community app built for the JSG social group in Indore.</p>
+      </div>
+      <div class="project-card">
+        <h4>Dreamgraphs</h4>
+        <p>App for challenging yourself and others to tasks, dares, and challenges.</p>
+      </div>
+      <div class="project-card">
+        <h4>Appointment App</h4>
+        <p>App for booking and managing appointments with vendors.</p>
+      </div>
+      <div class="project-card">
+        <h4>Background Eraser App</h4>
+        <p>Utility app for removing the background from a selected picture.</p>
+      </div>
+      <div class="project-card">
+        <h4>Slimfluencer</h4>
+        <p>Wellness app to support weight loss through French and English audio content.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>
-<div class="container">
-© 2026 Ankit Maheshwari • Senior Android Engineer
-</div>
+<footer id="contact">
+  <div class="wrap">
+    <h2>Open to Senior Android Opportunities</h2>
+    <p>Available for full-time product engineering roles with strong teams and meaningful products.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:ankytmaheshwari@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/ankytmaheshwari/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/ankytm" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="copyright">© 2026 Ankit Maheshwari — Senior Android Engineer</div>
+  </div>
 </footer>
-
-<script>
-/* Fade in */
-const els=document.querySelectorAll('.fade');
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
-});
-},{threshold:.15});
-
-els.forEach(el=>observer.observe(el));
-
-/* Parallax scroll */
-window.addEventListener('scroll',()=>{
-const top=window.pageYOffset;
-
-document.querySelectorAll('.parallax').forEach(el=>{
-const speed=el.getAttribute('data-speed');
-el.style.transform=`translateY(${top * speed}px)`;
-});
-});
-</script>
 
 </body>
 </html>
