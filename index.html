@@ -92,10 +92,11 @@
   .logline { font-family: var(--mono); font-size: 12.5px; color: var(--text-muted); padding: 3px 0; white-space: pre; }
   .logline b { color: var(--accent); font-weight: 500; }
   .logline .warm { color: var(--accent-warm); }
-  .stat-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-top: 14px; }
+  .stat-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-top: 14px; }
   .stat { background: var(--surface); padding: 14px 10px; text-align: center; }
   .stat b { display: block; font-family: var(--display); font-size: 20px; color: var(--accent); }
   .stat span { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  @media (max-width: 420px) { .stat-strip { grid-template-columns: repeat(2,1fr); } }
 
   section { padding: 72px 0; border-top: 1px solid var(--border); }
   .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; }
@@ -141,6 +142,13 @@
   .project-link { font-family: var(--mono); font-size: 12.5px; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
   .project-link:hover { text-decoration: underline; }
 
+  /* education / languages */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 780px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card h4 { font-family: var(--mono); font-size: 12px; color: var(--accent-warm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .info-card p { font-size: 14.5px; color: var(--text-muted); }
+  .info-card p.primary { color: var(--text); font-weight: 500; margin-bottom: 4px; }
+
   /* contact/footer */
   footer { padding: 64px 0 40px; text-align: center; }
   footer h2 { margin-bottom: 12px; }
@@ -183,12 +191,15 @@
         <span>adb logcat --tag=career</span>
         <span class="dot-row"><span></span><span></span><span></span></span>
       </div>
-      <div class="logline"><b>I/Profile</b>: role=<span class="warm">Sr. Android Engineer</span></div>
+      <div class="logline"><b>I/Profile</b>: role = <span class="warm">Sr. Android Engineer</span></div>
+      <div class="logline"><b>I/Location</b>: Bangalore, KA</div>
       <div class="logline"><b>I/Stack</b>: Kotlin, Compose, Clean Arch</div>
       <div class="logline"><b>I/Current</b>: Tata Cliq Luxury @ Abylle</div>
       <div class="logline"><b>I/Status</b>: <span class="warm">available_for_hire = true</span></div>
       <div class="stat-strip">
         <div class="stat"><b>8+</b><span>Years</span></div>
+        <div class="stat"><b>99.9%</b><span>Crash-Free</span></div>
+        <div class="stat"><b>10M+</b><span>Users</span></div>
         <div class="stat"><b>25%</b><span>Load Time ↓</span></div>
         <div class="stat"><b>20%</b><span>Bugs ↓</span></div>
         <div class="stat"><b>20+</b><span>Apps</span></div>
@@ -213,8 +224,8 @@
     <div class="timeline">
       <div class="role current">
         <div class="role-title">Sr. Android Developer</div>
-        <div class="role-meta">Abylle Solutions Pvt. Ltd · Oct 2022 – Present</div>
-        <div class="role-desc">Building the Tata Cliq Luxury Android app with Jetpack Compose and modular Clean Architecture. Improved performance by 25% and reduced bug reports by 20% through modularization. Integrated Adobe Analytics, RudderStack, Snowplow, and Juspay/Hyper SDK payments.</div>
+        <div class="role-meta">Abylle Solutions Pvt. Ltd · Oct 2022 – Aug- 2026</div>
+        <div class="role-desc">Building the Tata Cliq Luxury Android app with Jetpack Compose and modular Clean Architecture. Migrated the Onboarding and Home screens to Compose and optimized Search, PDP, and PLP pages. Maintained a 99.9% crash-free session rate across 10M+ users by resolving critical memory leaks and ANRs. Led modularization efforts that cut bug reports by ~20% and reduced load times by ~25%. Integrated Adobe Analytics, RudderStack, and Snowplow with Firebase Remote Config A/B testing, and implemented Juspay/Hyper SDK for secure checkout.</div>
       </div>
       <div class="role">
         <div class="role-title">Android Developer</div>
@@ -254,11 +265,15 @@
       </div>
       <div class="skill-cat">
         <h3>Architecture</h3>
-        <ul><li>MVVM</li><li>Clean Architecture</li><li>Modularization</li><li>ViewModel / LiveData</li></ul>
+        <ul><li>MVVM</li><li>Clean Architecture</li><li>Modularization</li><li>ViewModel / LiveData</li><li>Dependency Injection (Dagger-Hilt)</li><li>Navigation Component</li></ul>
       </div>
       <div class="skill-cat">
         <h3>Async / Data</h3>
-        <ul><li>Coroutines</li><li>Flow</li><li>RxJava</li><li>Room DB</li></ul>
+        <ul><li>Coroutines</li><li>Flow</li><li>RxJava</li><li>Room DB</li><li>SQLite</li><li>Data Binding</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h3>Tools & Process</h3>
+        <ul><li>Git</li><li>JIRA</li><li>Agile / Scrum / Kanban</li><li>CI/CD</li></ul>
       </div>
     </div>
   </div>
@@ -268,7 +283,7 @@
   <div class="wrap">
     <div class="section-head"><span class="section-num">04</span><h2>SDK & Integrations</h2></div>
     <div class="integration-grid">
-      <div class="integration-card"><h4>ANALYTICS</h4><p>Adobe Analytics, RudderStack, Snowplow, Firebase Analytics</p></div>
+      <div class="integration-card"><h4>ANALYTICS</h4><p>Adobe Analytics, RudderStack, Snowplow, Firebase Remote Config (A/B Testing)</p></div>
       <div class="integration-card"><h4>PAYMENTS</h4><p>Juspay / Hyper SDK, In-App Purchases, Secure Checkout</p></div>
       <div class="integration-card"><h4>MAPS & LOCATION</h4><p>Google Maps API, Geo Features</p></div>
       <div class="integration-card"><h4>MEDIA</h4><p>Media3 ExoPlayer, Video Feed Systems</p></div>
@@ -299,11 +314,11 @@
       </div>
       <div class="project-card">
         <h4>Bounty Sports</h4>
-        <p>Daily fantasy sports app where users select teams, join contests, and win prizes.</p>
+        <p>Daily fantasy sports app where users select teams, join contests, and win prizes — with in-app purchase and payment integration.</p>
       </div>
       <div class="project-card">
         <h4>Kumele</h4>
-        <p>Event management app where users create and join nearby events.</p>
+        <p>Event management app where users create and join nearby events, with Google Maps integration.</p>
       </div>
       <div class="project-card">
         <h4>I-Cash</h4>
@@ -364,6 +379,24 @@
       <div class="project-card">
         <h4>Slimfluencer</h4>
         <p>Wellness app to support weight loss through French and English audio content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">06</span><h2>Education & Languages</h2></div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>EDUCATION</h4>
+        <p class="primary">Bachelor of Engineering, Electronics & Communications</p>
+        <p>RGPV, Bhopal — Malwa Institute of Technology, Indore · 2011–2015</p>
+      </div>
+      <div class="info-card">
+        <h4>LANGUAGES</h4>
+        <p class="primary">Hindi — Native</p>
+        <p>English — Professional Proficiency</p>
       </div>
     </div>
   </div>
